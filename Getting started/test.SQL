@@ -1,0 +1,1 @@
+SELECT * from release_date;
