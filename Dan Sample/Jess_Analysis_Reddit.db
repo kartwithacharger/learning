@@ -1,0 +1,3 @@
+SELECT * FROM fact_reddit_posts
+WHERE title LIKE "%ATO%" 
+ OR content LIKE "%ATO%"; -- Select * statement populates totally of 60622 rows whereas 9180 posts relate to 'ATO'.
