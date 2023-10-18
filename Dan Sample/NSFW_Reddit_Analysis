@@ -1,0 +1,9 @@
+CREATE TABLE nsfw_comments AS
+SELECT id, content FROM fact_reddit_comments
+WHERE content LIKE '%nsfw%'; -- created new table with posts that mention nsfw
+
+ALTER TABLE NSFW RENAME TO nsfw_post; -- to change original self-created table 'NSFW' to 'nsfw_posts'
+
+SELECT reddit_id FROM nsfw_posts
+INNER JOIN nsfw_comments
+ON nsfw_posts.reddit_id = nsfw_comments.id; ---no results :( no relationship?
