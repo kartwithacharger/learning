@@ -1,3 +1,15 @@
+/*Goal is to potentially find redditors that are attempting to evade tax*/
 SELECT * FROM fact_reddit_posts
 WHERE title LIKE "%ATO%" 
  OR content LIKE "%ATO%"; -- Select * statement populates totally of 60622 rows whereas 9180 posts relate to 'ATO'.
+ 
+/*To create new table of ATO Topics from reddit posts*/
+CREATE TABLE ato_topics AS
+SELECT * FROM fact_reddit_posts
+WHERE title LIKE "%ATO%" 
+ OR content LIKE "%ATO%";
+ 
+SELECT * FROM ato_topics
+WHERE title LIKE '%how%' 
+    AND title LIKE '%tax%';
+
